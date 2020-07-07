@@ -1,6 +1,7 @@
 #' quick.leaflet
 #'
 #' Quick leaflet for polygons that need to be colored by a column.
+#' @export
 quick.leaflet <- function(st_df, color_by = "div_type", pal = RColorBrewer::brewer.pal(8, "Dark2"), weight = 8) {
   require(leaflet)
   st_df <- st_transform(st_df, 4326)
@@ -31,6 +32,7 @@ quick.leaflet <- function(st_df, color_by = "div_type", pal = RColorBrewer::brew
 #' Plots a region boundaries and the overlapping divisions.
 #' Takes at minimum just a region.id/.type. Names of objects referenced \code{geo.list}
 #' and \code{div} for boundaries and divisions are hardcoded and indexed from.
+#' @export
 quick.div.map <- function(region.id, region.type
                           ,div.type = "SIGNT1"
                           ,filter.to.type = NULL
