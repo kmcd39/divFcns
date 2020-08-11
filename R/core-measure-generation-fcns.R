@@ -12,7 +12,6 @@
 polygonal.div <- function(boundary, div,
                           div.types = c("U", "S", "I"), min.size = 5e5
                           , verbose = T, spatial.output = FALSE) {
-  require(lwgeom)
 
   if(verbose) cat("generating", unique(boundary$region.type),
                   "-",unique(boundary$region.id), "\n" )
@@ -27,7 +26,7 @@ polygonal.div <- function(boundary, div,
               mutate(n.polys = 0) )
 
   sub.polys <-
-    st_split(boundary, included.divisions)
+    lwgeom::st_split(boundary, included.divisions)
 
   area_filtered <-
     sub.polys %>%
